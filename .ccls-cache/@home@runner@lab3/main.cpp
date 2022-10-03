@@ -39,16 +39,27 @@ void AN::muestraDatos(){
 void AN::captura(){
 	cout<<"Dame resolucion deseada (8, 10 o 12): ";
 	cin>> resolucion;
-  if(resolucion!=8 || resolucion!=10 || resolucion!=12){
+  if(resolucion==8 || resolucion==10 || resolucion==12);
+  else{
     cout<<"Dato incorrecto ";
     exit (1);
   }
 	cout<<"Dame la frecuencia de muestreo ";
-	cin>> Fs;
+	cin>> Fs;  
 	cout<<"Dame canal a leer (1 a 32): ";
   cin>> canal;
+  if(canal>0 && canal<33);
+  else{
+    cout<<"Dato incorrecto ";
+    exit (1);
+  }
 	cout<<"Dame la lectura: ";
 	cin>> lectura;
+  if(lectura>=0 && lectura<3.4);
+  else{
+    cout<<"Dato incorrecto ";
+    exit (1);
+  }
 }
 /************************************************
    MAIN
@@ -62,13 +73,15 @@ int main(int argc, char** argv) {
 	//Capturando Datos  
 	cout<<endl<<"** Introduce Datos **"<<endl;
   for (int i=0;i<canales;i++){
-	  AN[i].captura();
+	  cout<<"\nToma: "<<i+1<<endl;
+    AN[i].captura();
   }
 	
 	//Imprimiendo Datos
   cout<<endl<<"** Imprimiendo Datos **"<<endl;
 	for (int i=0;i<canales;i++){
-		AN[i].muestraDatos();
+		cout<<"\nToma: "<<i+1<<endl;
+    AN[i].muestraDatos();
 	}
 		
 	system("pause");
